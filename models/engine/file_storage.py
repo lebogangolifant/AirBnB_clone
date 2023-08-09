@@ -1,57 +1,43 @@
 #!/usr/bin/python3
-"""FileStorage module to store objects"""
-
+"""file_storage.py module"""
 import json
 from models.base_model import BaseModel
 
 
 class FileStorage:
-    """
-    FileStorage class responsible for managing the
-    serialization and deserialization of instances to and from
-    JSON files.
-    """
+    """FileStorage class"""
 
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """
-        Returns:
-            dict: A dictionary of all stored instances.
-        """
-        return self.__objects
+        """Returns the dictionary __objects"""
+        return FileStorage.__objects
 
     def new(self, obj):
-        """
-        Adds a new instance to the storage.
-
-        Args:
-            obj (BaseModel): The instance to be stored.
-        """
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.__objects[key] = obj
+        """Sets in __objects the obj with key <obj class name>.id"""
+        if obj:
+            key = "{}.{}".format(obj.__class__.__name__, obj.id)
+            FileStorage.__objects[key] = obj
 
     def save(self):
-        """
-        Serializes instances to the JSON file.
-        """
-        with open(self.__file_path, 'w') as file:
-            obj_dict = {key: obj.to_dict() for key,
-                        obj in self.__objects.items()}
-            json.dump(obj_dict, file)
+        """Serializes __objects to the JSON file (path: __file_path)"""
+        new_dict = {}
+        for key, value in FileStorage.__objects.items():
+            new_dict[key] = value.to_dict().copy()
+        with open(FileStorage.__file_path, mode='w') as my_file:
+            json.dump(new_dict, my_file)
 
     def reload(self):
-        """
-        Deserializes instances from the JSON file.
-        """
+        """Deserializes a JSON file to __objects"""
         try:
-            with open(self.__file_path, 'r') as file:
-                obj_dict = json.load(file)
-                for key, value in obj_dict.items():
-                    cls_name, obj_id = key.split(".")
-                    cls = eval(cls_name)
-                    self.__objects[key] = cls(**value)
+            with open(FileStorage.__file_path, mode='r') as my_file:
+                new_dict = json.load(my_file)
+
+            for key, value in new_dict.items():
+                class_name = value.get('__class__')
+                obj = eval(class_name)(**value)
+                FileStorage.__objects[key] = obj
 
         except FileNotFoundError:
             pass
