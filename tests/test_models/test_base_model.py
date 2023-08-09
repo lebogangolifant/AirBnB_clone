@@ -43,5 +43,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(my_model_dict['created_at'], str)
         self.assertIsInstance(my_model_dict['updated_at'], str)
 
+
 if __name__ == '__main__':
     unittest.main()
