@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+import os
+import sys
+sys.path.append(os.path.abspath('../..'))
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
