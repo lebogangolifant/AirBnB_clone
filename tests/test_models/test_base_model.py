@@ -2,10 +2,10 @@
 
 import os
 import sys
-sys.path.append(os.path.abspath('../..'))
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
+sys.path.append(os.path.abspath('../..'))
 
 
 class TestBaseModel(unittest.TestCase):
