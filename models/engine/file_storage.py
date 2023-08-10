@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """file_storage.py module"""
+
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -40,11 +41,7 @@ class FileStorage:
                 obj = eval(class_name)(**value)
                 FileStorage.__objects[key] = obj
 
-            # Add 'User' to classes dictionary
-            classes = {
-                "BaseModel": BaseModel,
-                "User": User
-            }
-            storage.reload(classes)
+            self.__objects = {k: v for k, v in FileStorage.__objects.items()
+                              if k.split('.')[0] in self.__classes}
         except FileNotFoundError:
             pass
