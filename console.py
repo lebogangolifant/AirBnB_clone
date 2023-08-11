@@ -145,8 +145,13 @@ class HBNBCommand(cmd.Cmd):
         instance = all_objs[key]
         attr_name = args[2]
         attr_value = args[3]
-        setattr(instance, attr_name, attr_value)
-        instance.save()
+        if hasattr(instance, attr_name):
+            attr_type = type(getattr(instance, attr_name))
+            setattr(instance, attr_name, attr_type(attr_value))
+            instance.save()
+        else:
+            setattr(instance, attr_name, attr_value)
+            instance.save()
 
     def do_User(self, arg):
         """Retrieve all instances of User class"""
