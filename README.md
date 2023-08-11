@@ -26,9 +26,9 @@ The command interpreter supports the following commands:
 - `EOF`: Exit the command interpreter.
 - `create <class_name>`: Create a new instance of the specified class.
 - `show <class_name> <instance_id>`: Display the string representation of an instance.
-- __TODO__`destroy <class_name> <instance_id>`: Delete an instance.
-- __TODO__`all` or `all <class_name>`: Display all instances or instances of a specific class.
-- __TODO__`update <class_name> <instance_id> <attribute_name> "<attribute_value>"`: Update an attribute of an instance.
+- `destroy <class_name> <instance_id>`: Delete an instance.
+- `all` or `all <class_name>`: Display all instances or instances of a specific class.
+- `update <class_name> <instance_id> <attribute_name> "<attribute_value>"`: Update an attribute of an instance.
 
 ### Examples
 
