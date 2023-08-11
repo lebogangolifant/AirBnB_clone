@@ -104,8 +104,11 @@ class HBNBCommand(cmd.Cmd):
             if args[0] not in HBNBCommand.__classes:
                 print("** class doesn't exist **")
                 return
-            print([str(value) for key, value in all_objs.items() if args[0] in
-                   key])
+            if args[0] == "all":
+                print([str(value) for value in all_objs.values()])
+                return
+            print([str(value) for key, value in all_objs.items()
+                   if args[0] in key])
         except NameError:
             print("** class doesn't exist **")
 
@@ -137,6 +140,18 @@ class HBNBCommand(cmd.Cmd):
         attr_value = args[3]
         setattr(instance, attr_name, attr_value)
         instance.save()
+
+    def do_User(self, arg):
+        """Retrieve all instances of User class"""
+        self.do_all("User " + arg)
+
+    def do_State(self, arg):
+        """Retrieve all instances of State class"""
+        self.do_all("State " + arg)
+
+    def do_City(self, arg):
+        """Retrieve all instances of City class"""
+        self.do_all("City " + arg)
 
 
 if __name__ == '__main__':
