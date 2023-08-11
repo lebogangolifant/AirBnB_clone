@@ -12,6 +12,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from collections import Counter
 
 
 class HBNBCommand(cmd.Cmd):
@@ -152,6 +153,17 @@ class HBNBCommand(cmd.Cmd):
     def do_City(self, arg):
         """Retrieve all instances of City class"""
         self.do_all("City " + arg)
+
+    def do_count(self, arg):
+        """Retrieve the number of instances of a class"""
+        args = arg.split()
+        if not args:
+            print("** class name missing **")
+            return
+        class_name = args[0]
+        count = Counter(obj.__class__.__name__ for obj
+                        in storage.all().values())
+        print(count[class_name])
 
 
 if __name__ == '__main__':
