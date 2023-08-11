@@ -41,12 +41,12 @@ Using the command interpreter:
 
 2. Display information about a specific instance:
    ```
-   (hbnb) User.show("246c227a-d5c1")
+   (hbnb) User.show("246c227a-d5c1-403d-9bc7-6a47bb9f0f68")
    ```
 
 3. Delete an instance:
    ```
-   (hbnb) User.destroy("Bar")
+   (hbnb) User.destroy("246c227a-d5c1-403d-9bc7-6a47bb9f0f68")
    ```
 
 4. Display all instances of a specific class:
@@ -56,10 +56,5 @@ Using the command interpreter:
 
 5. Update an attribute of an instance:
    ```
-   (hbnb) User.update("38f22", "first_name", "John")
+   (hbnb) User.update("38f22813-2753-4d42-b37c-57a17f1e4f88", "age", 89)
    ```
-
-## Conclusion
-
-The AirBnB Clone command interpreter provides an easy way to interact with the AirBnB Clone project, allowing you to manage instances and perform various operations on the data. 
-
