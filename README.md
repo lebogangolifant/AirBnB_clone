@@ -1,4 +1,4 @@
-#0x00. AirBnB clone - The console
+# 0x00. AirBnB clone - The console
 
 This is a command-line interface (CLI) for managing and interacting with the AirBnB Clone project. The AirBnB Clone project is an implementation of the Airbnb booking platform with a simplified data model. The command interpreter allows you to create, update, delete, and query instances of different classes in the project.
 
