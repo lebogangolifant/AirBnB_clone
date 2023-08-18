@@ -48,6 +48,15 @@ class TestFileStorage(unittest.TestCase):
         obj_key = "{}.{}".format(bm.__class__.__name__, bm.id)
         self.assertIn(obj_key, fs2.all())
 
+    def test_file_path(self):
+        """
+        Test that the __file_path attribute is correctly set
+        """
+        storage = FileStorage()
+        self.assertIsInstance(storage._FileStorage__file_path, str)
+        self.assertEqual(storage._FileStorage__file_path, "file.json")
+        print("OK")
+
 
 if __name__ == '__main__':
     unittest.main()
