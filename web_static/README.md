@@ -8,7 +8,6 @@ This is a web static clone of the AirBnB website. The project aims to recreate t
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Contributing](#contributing)
 
 ## Description
 
@@ -35,14 +34,3 @@ To run the AirBnB Clone website locally, follow these steps:
 - Click the "Search" button to view the search results.
 - Browse through the displayed places and their details.
 - The website is fully responsive and works on both desktop and mobile devices.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or want to suggest improvements, feel free to open an issue or submit a pull request.
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`
-3. Make your changes and commit them: `git commit -m "Add your message"`
-4. Push to the branch: `git push origin feature-name`
-5. Open a pull request.
-
